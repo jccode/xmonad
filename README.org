@@ -1,0 +1,19 @@
+
+my Xmonad config file
+
+* How to use 
+- xmonad.desktop
+  Put it to =/usr/share/xsessions/= 
+
+- xmonad-start
+  Put it to =/usr/bin/=. It is the entry to start xmonad, used by "xmonad.desktop".
+
+- xmonad.hs
+  Put it to =~/.xmonad=. Create =~/.xmonad= directory if no exists.
+
+- session
+  Same as xmonad.hs. Put it to =~/.xmonad=. 
+
+- _xmonbarrc
+  Rename it to =.xmonbarrc=, then put it under =~/=. Configuration of xmonbar.
+  
