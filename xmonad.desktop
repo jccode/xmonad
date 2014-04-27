@@ -1,1 +1,6 @@
-/usr/share/xsessions/xmonad.desktop
+[Desktop Entry]
+Encoding=UTF-8
+Name=xmonad
+Comment=This session starts xmonad
+Exec=/usr/bin/xmonad-start
+Type=Application

@@ -1,1 +1,41 @@
-/usr/bin/xmonad-start
+#!/bin/sh
+
+XMONAD_DIR=$HOME/.xmonad
+
+#  if no user configuration
+if [ ! -d $XMONAD_DIR ]; then
+    # add a desktop friendly config if possible
+    if [ -r /usr/share/xmonad/xmonad.hs ]; then
+	mkdir $XMONAD_DIR
+	cp -p /usr/share/xmonad/xmonad.hs $XMONAD_DIR
+    else
+	echo "xmonad-start: install xmonad-config to customize"
+    fi
+    # display the manpage
+    case $DESKTOP_SESSION in
+	xmonad-gnome) TERM_CMD="gnome-terminal -x" ;;
+	xmonad-kde) TERM_CMD="konsole -e" ;;
+	*) TERM_CMD="xterm -e" ;;
+    esac
+    (sleep 5; $TERM_CMD man xmonad) &
+else
+    XMONAD_CUSTOM=$XMONAD_DIR/xmonad-$(uname -i)-linux
+    if [ -r $XMONAD_DIR/xmonad.hs -a -x $XMONAD_CUSTOM ]; then
+	if ldd $XMONAD_CUSTOM | grep -q "not found"; then
+	    xmonad --recompile
+	fi
+    fi
+fi
+
+case $DESKTOP_SESSION in
+xmonad-gnome)
+    # hack for gnome-session not starting screensaver for xmonad, etc
+    SCREENSAVER=/usr/bin/gnome-screensaver
+    [ -x "$SCREENSAVER" ] && $SCREENSAVER & ;;
+esac
+
+if [ -r $XMONAD_DIR/session ]; then
+    sh $XMONAD_DIR/session
+fi
+
+xmonad

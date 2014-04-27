@@ -1,1 +1,17 @@
-/home/jcchen/.xmonad/session
+#!/bin/bash
+
+trayer --edge top --align right --SetDockType true --SetPartialStrut true \
+  --expand true --width 5 --transparent true --tint 0x191970 --height 15 &
+
+# Set the background color
+xsetroot -solid midnightblue
+
+# Fire up apps
+xscreensaver -no-splash &
+ 
+if [ -x /usr/bin/nm-applet ] ; then
+   nm-applet --sm-disable &
+fi
+
+
+exec xmonad
