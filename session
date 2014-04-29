@@ -1,7 +1,7 @@
 #!/bin/bash
 
-trayer --edge top --align right --SetDockType true --SetPartialStrut true \
-  --expand true --width 5 --transparent true --tint 0x191970 --height 15 &
+# trayer
+trayer --edge top --align right --width 20 --height 26 --transparent true --tint 0x6D6D6D &
 
 # Set the background color
 xsetroot -solid midnightblue
@@ -11,6 +11,10 @@ xscreensaver -no-splash &
  
 if [ -x /usr/bin/nm-applet ] ; then
    nm-applet --sm-disable &
+fi
+
+if [ -x /usr/bin/gmixer ] ; then
+   gmixer -d &
 fi
 
 

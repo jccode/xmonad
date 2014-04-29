@@ -14,6 +14,22 @@ my Xmonad config file
 - session
   Same as xmonad.hs. Put it to =~/.xmonad=. 
 
-- _xmonbarrc
+- _xmonbarrc (deprecated)
   Rename it to =.xmonbarrc=, then put it under =~/=. Configuration of xmonbar.
+  Update: deprecated. Use dzen2 + conky instead.
+
+- conkyrc
+  Put it to =~/.xmonad=. Configuration of conky.
   
+* dependance
+** X program
+- gmrun (an lightweight application launcher similar to GNOME Run, xfce Application Finder)
+- dmenu (dynamic menu)
+- gmixer (a simple gtk/gstreamer audio mixer)
+- nm-applet (a network monitor and control GUI applet)
+- conky (a system monitor)
+- dzen2 (general-purpose message and notification for X11)
+
+** Haskell program
+- xmonad
+- xmonad-contrib

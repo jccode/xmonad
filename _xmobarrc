@@ -1,10 +1,12 @@
 
-Config { font = "-misc-fixed-*-*-*-*-13-*-*-*-*-*-*-*"
+-- font = "-misc-fixed-*-*-*-*-13-*-*-*-*-*-*-*"
+
+Config { font = "xft:Times New Roman-30:italic"
        , borderColor = "black"
        , border = TopB
        , bgColor = "black"
        , fgColor = "grey"
-       , position = Top
+       , position = TopP 10 250
        , lowerOnStart = True
        , pickBroadest = False
        , persistent = False
@@ -21,5 +23,5 @@ Config { font = "-misc-fixed-*-*-*-*-13-*-*-*-*-*-*-*"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%cpu% | %memory% * %swap% | %enp9s0% - %wlp12s0% | %StdinReader%}{ <fc=#ee9a00>%date%</fc>| %EGPF% | %uname%"
+       , template = "%cpu% | %memory% * %swap% | %enp9s0% - %wlp12s0% } %StdinReader% { <fc=#ee9a00>%date%</fc>| %EGPF% | %uname%"
        }
