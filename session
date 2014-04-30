@@ -41,7 +41,13 @@ fi
 trayer --edge top --align right --width 20 --height 26 --transparent true --tint 0x6D6D6D &
 
 # Set the background color
-xsetroot -solid midnightblue
+# xsetroot -solid midnightblue
+
+# Set wallpaper
+loadimage -onroot -fillscreen /usr/share/wallpapers/openSUSEdefault/contents/images/1600x1200.jpg
+
+# set mouse cursor
+xsetroot -cursor_name left_ptr
 
 # Fire up apps
 xscreensaver -no-splash &
@@ -54,5 +60,8 @@ if [ -x /usr/bin/gmixer ] ; then
    gmixer -d &
 fi
 
-
+if [ -x /usr/bin/xfce4-clipman ]; then
+    xfce4-clipman &
+fi    
+    
 exec xmonad

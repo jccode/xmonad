@@ -60,8 +60,8 @@ short_units yes
 
 
 TEXT
-^fg(\#666666)Net:↑${upspeed enp0s25} ↓${downspeed enp0s25} ^fg()| \
-CPU:$cpu% | \
-RAM:$mem/$memmax($memperc%) | \
-Swap:$swap/$swapmax($swapperc%) | \
-Time:${time %b %d %H:%M}
+^fg(\#666666)Net:↑${upspeed enp0s25} ↓${downspeed enp0s25} ^fg()    \
+^fg(\#4FF302)CPU:$cpu%    \
+RAM:$mem/$memmax($memperc%)    \
+Swap:$swap/$swapmax($swapperc%)   ^fg()  \
+^fg(\#FFF)${time %F %H:%M} ^fg()

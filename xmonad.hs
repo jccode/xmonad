@@ -33,8 +33,8 @@ modMask' = mod4Mask
 myTerminal = "xfce4-terminal"
 
 myXmonadBar = "dzen2 -x '0' -w '400' -ta 'l'" ++ myDzenStyle
-myStatusBar = "conky -c ~/.xmonad/conkyrc | dzen2 -x '400' -w '1000' -ta 'r' " ++ myDzenStyle
-myDzenStyle = " -h '26' -y '0' -fg '#ff0' "
+myStatusBar = "conky -c ~/.xmonad/conkyrc | dzen2 -x '400' -w '800' -ta 'r' " ++ myDzenStyle
+myDzenStyle = " -h '26' -y '0' -fg '#ff0' -fn 'Microsoft YaHei-10' "
 
 main = do
     -- xmobar
@@ -60,12 +60,10 @@ main = do
 myManageHook :: ManageHook
 myManageHook = (composeAll . concat $ 
                [ [ className =? f --> doFloat | f <- myFloats ]
-               , [ resource =? r --> doIgnore | r <- myIgnores ]
                , [isFullscreen --> myDoFullFloat ]
                ])
                where
-                 myFloats = ["Gimp", "Gmixer", "Vncviewer"]
-                 myIgnores = ["desktop", "desktop_window", "trayer","notify-osd","stalonetray"]
+                 myFloats = ["Gimp", "Gmixer", "Vncviewer", "Pidgin", "Remmina"]
 
 
 
@@ -110,10 +108,11 @@ myLayout = toggleLayouts (Full) normalLayout
 newKeys x = M.union (keys defaultConfig x) (M.fromList (keys' x))
 
 keys' conf@(XConfig {XMonad.modMask = modMask}) = 
-      [ ((controlMask .|. shiftMask, xK_Delete), spawn "xscreensaver-command -lock")
+      [ ((controlMask .|. mod1Mask, xK_Delete), spawn "xscreensaver-command -lock")
       , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
       , ((0, xK_Print), spawn "scrot")
-        -- 
+      , ((mod1Mask, xK_c), spawn "xfce4-popup-clipman")
+
         -- restart
       , ((mod4Mask, xK_q), spawn "killall conky dzen2 && xmonad --recompile && xmonad --restart")
 
@@ -131,7 +130,7 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) =
       , ((modMask .|. shiftMask, xK_Right), shiftToNext)
       , ((modMask .|. shiftMask, xK_Left), shiftToPrev)
         
-        -- shiftToNext, then, nextWS
+        -- Shifttonext, then, nextWS
       -- , ((modMask .|. controlMask .|. shiftMask, xK_Right), )
         
       ]
