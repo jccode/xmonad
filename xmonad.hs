@@ -33,7 +33,7 @@ modMask' = mod4Mask
 myTerminal = "xfce4-terminal"
 
 myXmonadBar = "dzen2 -x '0' -w '400' -ta 'l'" ++ myDzenStyle
-myStatusBar = "conky -c ~/.xmonad/conkyrc | dzen2 -x '400' -w '800' -ta 'r' " ++ myDzenStyle
+myStatusBar = "conky -c ~/.xmonad/conkyrc | dzen2 -x '400' -w '1200' -ta 'r' " ++ myDzenStyle  -- hgst:800, home:1200
 myDzenStyle = " -h '26' -y '0' -fg '#ff0' -fn 'Microsoft YaHei-10' "
 
 main = do

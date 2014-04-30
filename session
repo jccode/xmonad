@@ -44,7 +44,7 @@ trayer --edge top --align right --width 20 --height 26 --transparent true --tint
 # xsetroot -solid midnightblue
 
 # Set wallpaper
-loadimage -onroot -fillscreen /usr/share/wallpapers/openSUSEdefault/contents/images/1600x1200.jpg
+xloadimage -onroot -fillscreen /usr/share/wallpapers/openSUSEdefault/contents/images/1920x1080.jpg
 
 # set mouse cursor
 xsetroot -cursor_name left_ptr
