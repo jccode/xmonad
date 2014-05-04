@@ -20,6 +20,10 @@ my Xmonad config file
 
 - conkyrc
   Put it to =~/.xmonad=. Configuration of conky.
+
+- conky
+  This folder contain conky resources for conky standalone application. No necessary
+  for xmonad.
   
 * dependance
 ** X program
